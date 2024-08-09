@@ -39,7 +39,7 @@ button.addEventListener("click", function () {
 });
 
 
-// Daj.js
+// Day.js
 
 const formatador = (data) => {
   return {
