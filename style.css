@@ -1,33 +1,67 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
+:root {
+  font-size: 62.5%;
+  --font-family: "Inter";
+}
 
-html,
-input,
-select,
-button,
-option {
-  font-family: 'Inter', sans-serif;
+body {
+  font-size: 1.6rem;
   background-color: #09090B;
-  color: #FAFAFA;
-
   line-height: 120%;
   letter-spacing: -0.02em;
 }
 
-/* app */
-#app {
-  padding: 40px 20px;
-  max-width: 320px;
+.main {
+  display: flex;
+  justify-content: center;
+  max-width: 960px;
   margin: auto;
+  margin-top: 40px;
+  gap: 32px;
+
+  font-family: var(--font-family);
 }
 
+.left-side form {
+  display: flex;
+  flex-direction: column;
+}
 
-/* form */
-#place {
+input,
+select {
+  all: unset;
+}
+
+form input,
+select,
+button {
+  width: 100%;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding-right: 16px;
+  padding-left: 16px;
+  height: 56px;
+  border: 1px solid #27272A;
+  border-radius: 12px;
+  background-color: #09090B;
+  color: #F4F4F5;
+}
+
+.input-wrapper:focus-within {
+  outline: 2px solid yellowgreen;
+}
+
+#location {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -36,155 +70,114 @@ option {
 
   font-size: 14px;
   margin-bottom: 32px;
+  background-color: #18181B;
 }
 
-input,
-select {
-  all: unset;
-}
-
-input,
-select,
-button {
-  width: 100%;
-}
-
-.fields {
-  display: grid;
-  gap: 8px;
-}
-
-.field-wrapper {
-  padding: 18px;
+#activity {
   background-color: #09090B;
-  border: 1px solid #27272A;
-  border-radius: 8px;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  color: #A1A1AA
 }
 
-.field-wrapper:focus-within {
-  outline: 2px solid yellowgreen;
+#time {
+  margin-bottom: 12px;
 }
 
-button {
+#saveActivityButton, #testebutton {
+  width: 100%;
   margin-top: 12px;
-  border: none;
   padding: 12px 20px;
-  background-color: #AFF445;
+
+  border: none;
   border-radius: 8px;
+  background-color: #BEF264;
+  color: #1A2E05;
 
   font-weight: 500;
   font-size: 16px;
+  letter-spacing: -0.02em;
 
-  color: #132F00;
   cursor: pointer;
 }
 
-.card-bg {
-  background: #18181B;
-
+.crazy-box-shadow {
   box-shadow:
     0px 8px 8px rgba(0, 0, 0, 0.1),
     0px 4px 4px rgba(0, 0, 0, 0.1),
     0px 2px 2px rgba(0, 0, 0, 0.1),
     0px 0px 0px 1px rgba(0, 0, 0, 0.1),
-    inset 0px 0px 0px 1px rgba(255, 255, 255, 0.03), inset 0px 1px 0px rgba(255, 255, 255, 0.03);
+    inset 0px 0px 0px 1px rgba(255, 255, 255, 0.03),
+    inset 0px 1px 0px rgba(255, 255, 255, 0.03);
 
   border-radius: 12px;
 }
 
-/* main */
-main {
-  margin-top: 32px;
-}
 
-h1 {
-  text-align: center;
-  font-weight: 600;
-  font-size: 24px;
 
-  margin-bottom: 24px;
-}
-
-section {
-  display: grid;
+.right-side {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   gap: 10px;
+  color: #F4F4F5;
+  font-size: 16px;
 }
 
-section input[type="checkbox"] {
-  position: absolute;
-  inset: 0;
-}
-
-section .card-bg {
-  position: relative;
-  padding: 10px 16px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-section .card-bg:has(:checked) .active,
-section .card-bg .inactive {
-  display: block;
-}
-
-section .card-bg:has(:checked) .inactive,
-section .card-bg .active {
-  display: none;
-}
-
-section .card-bg>div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-time {
+.date-info {
   font-size: 14px;
   color: #A1A1AB;
   text-align: right;
 }
 
-time.full {
+.right-side h1 {
+  margin-bottom: 24px;
+  color: #FAFAFA;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+
+.atividadeCriada {
+  position: relative;
+  padding: 10px 16px;
+  /* margin-bottom: 12px; */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #18181B;
+}
+
+.atividadeCriada input[type="checkbox"] {
+  position: absolute;
+  inset: 0;
+}
+
+.atividadeCriada:has(:checked) .active,
+.atividadeCriada .inactive {
+  display: block;
+}
+
+.atividadeCriada:has(:checked) .inactive,
+.atividadeCriada .active {
   display: none;
 }
 
-@media (width > 1024px) {
-  #app {
-    display: flex;
-    max-width: 960px;
-    gap: 32px;
-  }
-
-  main {
-    margin-top: 0;
-    flex: 1;
-  }
-
-  h1 {
-    text-align: left;
-  }
-
-  time.full {
-    display: block;
-  }
-
-  time.short {
-    display: none;
-  }
+.atividadeCriada>div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-section .card-bg {
-  animation: appear 300ms;
+#noActivityText {
+  display: block;
+  color: #71717A;
 }
 
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
+#line, #otherline {
+  margin-top: 10px;
+  padding: 2px;
+  border: none;
+  border-radius: 12px;
+  background: #18181B;
 }
